@@ -11,11 +11,11 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>検索詳細画面</title>
+<title>ToDo詳細画面</title>
 </head>
 <body>
 	<div id="wrapper">
-		<h1>検索詳細</h1>
+		<h1>ToDo内容</h1>
 		<fieldset>
 			<legend>詳細</legend>
 			<table>

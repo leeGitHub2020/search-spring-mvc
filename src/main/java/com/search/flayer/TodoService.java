@@ -16,7 +16,7 @@ import com.search.flayer.dto.FindResult;
 public interface TodoService {
 
     /**
-     * 検索条件により検索を行う
+     * 検索条件によりToDoリスト検索を行う
      *
      * @param findCondition
      * @param pageable
@@ -25,7 +25,7 @@ public interface TodoService {
     public List<FindResult> findAllByCondition(FindCondition findCondition, Pageable pageable);
 
     /**
-     * todoIdにより検索を行う
+     * todoIdによりTodo内容検索を行う
      *
      * @param todoId
      * @return
@@ -33,4 +33,19 @@ public interface TodoService {
     public FindResult findOne(String todoId);
 
 
+    /**
+     * ToDo状態変更
+     *
+     * @param todoId
+     * @return
+     */
+    public int finish(String todoId);
+
+    /**
+     * ToDo削除
+     *
+     * @param todoId
+     * @return
+     */
+    public int delete(String todoId);
 }

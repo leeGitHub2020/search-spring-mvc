@@ -17,7 +17,7 @@ import com.search.flayer.dto.FindCondition;
 import com.search.flayer.dto.FindResult;
 
 /**
- * 検索画面のコントロール処理
+ * ToDo検索画面のコントロール
  *
  * @author hitac
  *
@@ -25,14 +25,20 @@ import com.search.flayer.dto.FindResult;
 @Controller
 public class FindController {
 
+    /**
+     * ToDo検索処理のサービス
+     */
     @Autowired
     private TodoService todoService;
 
+    /**
+     * Dozerマープ
+     */
     @Autowired
     private Mapper mapper;
 
     /**
-     * 検索画面のコントロール処理
+     * ToDo検索コントロール
      *
      * @param form
      * @param bindingResult

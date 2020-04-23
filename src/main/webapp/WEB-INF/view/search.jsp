@@ -11,11 +11,11 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>検索画面</title>
+<title>ToDo検索</title>
 </head>
 <body>
 	<div id="wrapper">
-		<h1>検索ツール</h1>
+		<h1>ToDo検索</h1>
 		<fieldset>
 			<legend>検索条件</legend>
 			<form:form method="get" modelAttribute="findForm">

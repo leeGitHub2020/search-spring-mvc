@@ -19,7 +19,7 @@ import com.search.flayer.dto.FindResult;
 public class TodoServiceImpl implements TodoService {
 
     /**
-     * 検索条件により検索を行う
+     * 検索条件によりToDoリスト検索を行う
      *
      * @param findCondition
      * @param pageable
@@ -56,7 +56,7 @@ public class TodoServiceImpl implements TodoService {
     }
 
     /**
-     * todoIdにより検索を行う
+     * todoIdによりToDo内容検索を行う
      *
      * @param todoId
      * @return
@@ -65,13 +65,31 @@ public class TodoServiceImpl implements TodoService {
     public FindResult findOne(String todoId) {
 
         // TODO DBの検索動作
-        FindResult result1 = new FindResult();
-        result1.setTodoId(todoId);
-        result1.setTodoTitle("タイトル１");
-        result1.setCreatedAt(DateUtils.formatStringToDate("2020-04-01", DateUtils.DATE_FORMAT_YMD));
-        result1.setFinished(Boolean.FALSE);
+        FindResult result = new FindResult();
+        result.setTodoId(todoId);
+        result.setTodoTitle("タイトル１");
+        result.setCreatedAt(DateUtils.formatStringToDate("2020-04-01", DateUtils.DATE_FORMAT_YMD));
+        result.setFinished(Boolean.FALSE);
 
-        return result1;
+        return result;
+    }
+
+    /**
+     * ToDo状態変更
+     */
+    @Override
+    public int finish(String todoId) {
+        // TODO 自動生成されたメソッド・スタブ
+        return 1;
+    }
+
+    /**
+     * ToDo削除
+     */
+    @Override
+    public int delete(String todoId) {
+        // TODO 自動生成されたメソッド・スタブ
+        return 1;
     }
 
 
