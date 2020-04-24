@@ -12,25 +12,29 @@
 <head>
 <meta charset="utf-8">
 <title>ToDo検索</title>
+<link rel="stylesheet" href="css/search.css">
 </head>
 <body>
 	<div id="wrapper">
 		<h1>ToDo検索</h1>
 		<fieldset>
 			<legend>検索条件</legend>
-			<form:form method="get" modelAttribute="findForm">
+			<form:form method="get" modelAttribute="findForm" class="form-horizontal">
 				<div>
-					<form:label path="todoTitle">タイトル</form:label>
-					<form:input path="todoTitle" />
-					<form:errors path="todoTitle" />
+					<form:label path="todoTitle" cssErrorClass="error-label">タイトル</form:label>
+					<form:input path="todoTitle" cssErrorClass="error-input" />
+					<form:errors path="todoTitle" cssClass="error-messages" />
 				</div>
+				<br>
 				<div>
-					<form:label path="createdAt">登録日付</form:label>
-					<form:input path="createdAt" />
-					<form:errors path="createdAt" />
+					<form:label path="createdAt" cssErrorClass="error-label">登録日付</form:label>
+					<form:input path="createdAt" cssErrorClass="error-input" />
+					<form:errors path="createdAt" cssClass="error-messages" />
 				</div>
+				<br>
 				<div>
 					<label>状態</label>
+					<br>
 					<div>
 						<form:radiobutton path="finished" value="" label="全部" />
 						<form:radiobutton path="finished" value="true" label="完了" />
@@ -38,6 +42,7 @@
 						<form:errors path="finished" />
 					</div>
 				</div>
+				<br><br>
 				<form:button>検索</form:button>
 			</form:form>
 		</fieldset>
