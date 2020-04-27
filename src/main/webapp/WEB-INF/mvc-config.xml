@@ -26,10 +26,11 @@
 	<context:component-scan
 		base-package="com.search.flayer"></context:component-scan>
 
+	<!-- テストコード -->
+	<context:component-scan base-package="test"></context:component-scan>
+
 	<mvc:view-resolvers>
 		<mvc:jsp prefix="/WEB-INF/view/" />
 	</mvc:view-resolvers>
-
-
 
 </beans>
