@@ -24,7 +24,7 @@ public class FindForm implements Serializable {
     private String todoTitle;
 
     /**
-     * ToDoタイトル
+     * 状態
      */
     private Boolean finished;
 

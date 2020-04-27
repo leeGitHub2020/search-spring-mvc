@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import com.search.flayer.TodoService;
+import com.search.player.base.BaseController;
 
 /**
  * ToDo詳細画面のコントロール
@@ -16,7 +17,7 @@ import com.search.flayer.TodoService;
  *
  */
 @Controller
-public class DetailsController {
+public class DetailsController extends BaseController {
 
     @Autowired
     private TodoService todoService;
