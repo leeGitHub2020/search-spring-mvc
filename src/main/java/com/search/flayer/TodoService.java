@@ -2,7 +2,6 @@ package com.search.flayer;
 
 import java.util.List;
 import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Service;
 import com.search.flayer.dto.FindCondition;
 import com.search.flayer.dto.FindResult;
 
@@ -12,7 +11,6 @@ import com.search.flayer.dto.FindResult;
  * @author hitac
  *
  */
-@Service
 public interface TodoService {
 
     /**

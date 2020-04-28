@@ -41,6 +41,9 @@
 		<!-- Spring Data JPA -->
 		<spring-data-jpa.version>2.0.0.RELEASE</spring-data-jpa.version>
 
+		<!-- postgresql -->
+		<postgresql.version>9.4-1206-jdbc42</postgresql.version>
+
 		<!-- Hibernate / JPA -->
 		<hibernate.version>5.2.10.Final</hibernate.version>
 
@@ -127,6 +130,13 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
 			<version>${spring-framework.version}</version>
+		</dependency>
+
+		<!-- postgresql -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>${postgresql.version}</version>
 		</dependency>
 
 		<!-- Spring Data JPA -->
