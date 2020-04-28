@@ -18,6 +18,7 @@
 	<div id="wrapper">
 		<h1>ToDo検索</h1>
 		<fieldset>
+			<div class="error-messages">${searchError}</div>
 			<legend>検索条件</legend>
 			<form:form method="get" modelAttribute="findForm" class="form-horizontal">
 				<div>
