@@ -44,6 +44,9 @@
 		<!-- postgresql -->
 		<postgresql.version>9.4-1206-jdbc42</postgresql.version>
 
+		<!-- spring jdbc -->
+		<spring.jdbc.version>4.2.3.RELEASE</spring.jdbc.version>
+
 		<!-- Hibernate / JPA -->
 		<hibernate.version>5.2.10.Final</hibernate.version>
 
@@ -125,11 +128,11 @@
 			<version>${hibernate.version}</version>
 		</dependency>
 
-		<!-- jdbc -->
+		<!-- spring jdbc -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
-			<version>${spring-framework.version}</version>
+			<version>${spring.jdbc.version}</version>
 		</dependency>
 
 		<!-- postgresql -->
@@ -179,6 +182,30 @@
 			<artifactId>junit</artifactId>
 			<version>${junit.version}</version>
 			<scope>test</scope>
+		</dependency>
+
+		<!-- mybatis -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.5.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>2.0.0</version>
+		</dependency>
+
+		<!-- apache log4j -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.12.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>2.12.0</version>
 		</dependency>
 
 	</dependencies>
