@@ -73,7 +73,7 @@ public class LoginController extends BaseController {
         return "login";
     }
 
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(value = "login",method = RequestMethod.POST)
     public ModelAndView loginPost(@ModelAttribute("login") LoginForm loginForm) {
 
         // モデル取得

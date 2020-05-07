@@ -4,9 +4,9 @@
 <mapper namespace="com.search.dlayer.dao.MUserDao">
 
 	<!-- com.search.dlayer.dao.UserDao.MUserDao#insert -->
-	<select id="insert" parameterType="com.search.dlayer.entity.MUser">>
+	<insert id="insert" parameterType="com.search.dlayer.entity.MUser">
 		insert into m_user(id, name) values (#{id}, #{name})
-	</select>
+	</insert>
 
 	<!-- com.search.dlayer.dao.UserDao.MUserDao#search -->
 	<select id="search" parameterType="java.lang.String" resultType="com.search.dlayer.entity.MUser">
@@ -14,13 +14,13 @@
 	</select>
 
 	<!-- com.search.dlayer.dao.UserDao.MUserDao#update -->
-	<select id="update" parameterType="com.search.dlayer.entity.MUser">
+	<update id="update" parameterType="com.search.dlayer.entity.MUser">
 		update m_user set name = #{name} where id = #{id}
-	</select>
+	</update>
 
 	<!-- com.search.dlayer.dao.UserDao.MUserDao#delete -->
-	<select id="delete" parameterType="com.search.dlayer.entity.MUser">
+	<delete id="delete" parameterType="com.search.dlayer.entity.MUser">
 		delete from m_user where id = #{id}
-	</select>
+	</delete>
 </mapper>
 

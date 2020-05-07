@@ -73,7 +73,7 @@ public class MLoginController extends BaseController {
         return "mlogin";
     }
 
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(value = "mlogin",method = RequestMethod.POST)
     public ModelAndView loginPost(@ModelAttribute("mlogin") MLoginForm mloginForm) {
 
         // モデル取得
