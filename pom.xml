@@ -35,14 +35,20 @@
 		<!-- Dozer -->
 		<net-sf.dozer-version>5.4.0</net-sf.dozer-version>
 
-		<!-- Spring -->
+		<!-- Spring-mvc -->
 		<spring-framework.version>5.0.4.RELEASE</spring-framework.version>
+
+		<!-- Spring-tx -->
+		<spring-tx.version>5.0.4.RELEASE</spring-tx.version>
 
 		<!-- Spring Data JPA -->
 		<spring-data-jpa.version>2.0.0.RELEASE</spring-data-jpa.version>
 
 		<!-- postgresql -->
 		<postgresql.version>9.4-1206-jdbc42</postgresql.version>
+
+		<!-- spring jdbc -->
+		<spring.jdbc.version>4.2.3.RELEASE</spring.jdbc.version>
 
 		<!-- Hibernate / JPA -->
 		<hibernate.version>5.2.10.Final</hibernate.version>
@@ -101,7 +107,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
-			<version>${spring-framework.version}</version>
+			<version>${spring-tx.version}</version>
 		</dependency>
 
 		<!-- Logging with SLF4J & LogBack -->
@@ -125,11 +131,11 @@
 			<version>${hibernate.version}</version>
 		</dependency>
 
-		<!-- jdbc -->
+		<!-- spring jdbc -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
-			<version>${spring-framework.version}</version>
+			<version>${spring.jdbc.version}</version>
 		</dependency>
 
 		<!-- postgresql -->
@@ -179,6 +185,25 @@
 			<artifactId>junit</artifactId>
 			<version>${junit.version}</version>
 			<scope>test</scope>
+		</dependency>
+
+		<!-- mybatis -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.5.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>2.0.0</version>
+		</dependency>
+
+		<!-- log4j -->
+		<dependency>
+		     <groupId>log4j</groupId>
+		     <artifactId>log4j</artifactId>
+		     <version>1.2.16</version>
 		</dependency>
 
 	</dependencies>

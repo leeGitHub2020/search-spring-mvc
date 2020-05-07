@@ -1,6 +1,7 @@
 package com.search.player;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.log4j.Logger;
 import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,7 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import com.search.flayer.LoginService;
+import com.search.flayer.MLoginService;
 import com.search.flayer.dto.LoginInfo;
 import com.search.player.base.BaseController;
 
@@ -19,7 +20,13 @@ import com.search.player.base.BaseController;
  *
  */
 @Controller
-public class LoginController extends BaseController {
+public class MLoginController extends BaseController {
+
+    /**
+     * ログ
+     */
+    Logger logger = Logger.getLogger(MLoginController.class);
+
 
     /**
      * 操作種別：登録
@@ -42,10 +49,15 @@ public class LoginController extends BaseController {
     private static final String DELETE = "4";
 
     /**
+     * 操作種別；トランザクション
+     */
+    private static final String TRANSACTION = "5";
+
+    /**
      * ログインサービス
      */
     @Autowired
-    private LoginService loginService;
+    private MLoginService mloginService;
 
     /**
      * Dozerマープ
@@ -58,9 +70,9 @@ public class LoginController extends BaseController {
      *
      * @return
      */
-    @ModelAttribute("login")
-    public LoginForm init() {
-        return new LoginForm();
+    @ModelAttribute("mlogin")
+    public MLoginForm init() {
+        return new MLoginForm();
     }
 
     /**
@@ -68,26 +80,26 @@ public class LoginController extends BaseController {
      *
      * @return
      */
-    @RequestMapping(value = "login", method = RequestMethod.GET)
+    @RequestMapping(value = "mlogin", method = RequestMethod.GET)
     public String loginGet() {
-        return "login";
+        return "mlogin";
     }
 
-    @RequestMapping(value = "login",method = RequestMethod.POST)
-    public ModelAndView loginPost(@ModelAttribute("login") LoginForm loginForm) {
+    @RequestMapping(value = "mlogin",method = RequestMethod.POST)
+    public ModelAndView loginPost(@ModelAttribute("mlogin") MLoginForm mloginForm) {
 
         // モデル取得
-        ModelAndView mv = new ModelAndView("login");
+        ModelAndView mv = new ModelAndView("mlogin");
 
         // 操作種別を取得する
-        String todo = loginForm.getTodo();
+        String todo = mloginForm.getTodo();
         if (StringUtils.isEmpty(todo)) {
             mv.addObject("msg", "操作種別を選択してください。");
         } else if (SAVE.equals(todo)) {
             // 登録情報取得
-            LoginInfo loginInfo = mapper.map(loginForm, LoginInfo.class);
+            LoginInfo loginInfo = mapper.map(mloginForm, LoginInfo.class);
             // サービス呼び出し
-            int count = loginService.insert(loginInfo);
+            int count = mloginService.insert(loginInfo);
             if (count > 0) {
                 mv.addObject("msg", "ユーザー情報を登録しました。");
             } else {
@@ -95,17 +107,17 @@ public class LoginController extends BaseController {
             }
         } else if (SEARCH.equals(todo)) {
             // サービス呼び出し
-            LoginInfo loginInfo = loginService.search(loginForm.getId());
+            LoginInfo loginInfo = mloginService.search(mloginForm.getId());
             if (loginInfo == null) {
                 mv.addObject("msg", "検索内容が見つかりませんでした。");
             } else {
-                loginForm.setName(loginInfo.getName());
+                mloginForm.setName(loginInfo.getName());
             }
         } else if (UPDATE.equals(todo)) {
             // 更新情報取得
-            LoginInfo loginInfo = mapper.map(loginForm, LoginInfo.class);
+            LoginInfo loginInfo = mapper.map(mloginForm, LoginInfo.class);
             // サービス呼び出し
-            int count = loginService.update(loginInfo);
+            int count = mloginService.update(loginInfo);
             if (count > 0) {
                 mv.addObject("msg", "ユーザー情報を更新しました。");
             } else {
@@ -113,13 +125,25 @@ public class LoginController extends BaseController {
             }
         } else if (DELETE.equals(todo)) {
             // 削除情報取得
-            LoginInfo loginInfo = mapper.map(loginForm, LoginInfo.class);
+            LoginInfo loginInfo = mapper.map(mloginForm, LoginInfo.class);
             // サービス呼び出し
-            int count = loginService.delete(loginInfo);
+            int count = mloginService.delete(loginInfo);
             if (count > 0) {
                 mv.addObject("msg", "ユーザー情報を削除しました。");
             } else {
                 mv.addObject("msg", "ユーザー情報の削除が失敗しました。");
+            }
+        } else if (TRANSACTION.equals(todo)) {
+
+            // 削除情報取得
+            LoginInfo input = mapper.map(mloginForm, LoginInfo.class);
+
+            try {
+                mloginService.execute(input);
+                mv.addObject("msg", "ネム更新がしました。");
+            } catch (Exception e) {
+                logger.error("", e);
+                mv.addObject("msg", "トランザクションがが失敗しました。");
             }
         }
         return mv;
