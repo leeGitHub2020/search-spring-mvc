@@ -1,5 +1,6 @@
 package com.search.flayer;
 
+import com.search.flayer.base.BLogic;
 import com.search.flayer.dto.LoginInfo;
 
 /**
@@ -8,7 +9,7 @@ import com.search.flayer.dto.LoginInfo;
  * @author hitac
  *
  */
-public interface MLoginService {
+public interface MLoginService extends BLogic<LoginInfo, LoginInfo> {
 
     /**
      * 登録

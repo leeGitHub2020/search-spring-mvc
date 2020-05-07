@@ -31,6 +31,7 @@
 					<form:radiobutton path="todo" value="2" label="検索" />
 					<form:radiobutton path="todo" value="3" label="更新" />
 					<form:radiobutton path="todo" value="4" label="削除" />
+					<form:radiobutton path="todo" value="5" label="トランザクション" />
 				</div>
 				<br />
 				<input type="submit" value="確認" />

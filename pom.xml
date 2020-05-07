@@ -35,8 +35,11 @@
 		<!-- Dozer -->
 		<net-sf.dozer-version>5.4.0</net-sf.dozer-version>
 
-		<!-- Spring -->
+		<!-- Spring-mvc -->
 		<spring-framework.version>5.0.4.RELEASE</spring-framework.version>
+
+		<!-- Spring-tx -->
+		<spring-tx.version>5.0.4.RELEASE</spring-tx.version>
 
 		<!-- Spring Data JPA -->
 		<spring-data-jpa.version>2.0.0.RELEASE</spring-data-jpa.version>
@@ -104,7 +107,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
-			<version>${spring-framework.version}</version>
+			<version>${spring-tx.version}</version>
 		</dependency>
 
 		<!-- Logging with SLF4J & LogBack -->
@@ -196,16 +199,11 @@
 			<version>2.0.0</version>
 		</dependency>
 
-		<!-- apache log4j -->
+		<!-- log4j -->
 		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-core</artifactId>
-			<version>2.12.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-api</artifactId>
-			<version>2.12.0</version>
+		     <groupId>log4j</groupId>
+		     <artifactId>log4j</artifactId>
+		     <version>1.2.16</version>
 		</dependency>
 
 	</dependencies>

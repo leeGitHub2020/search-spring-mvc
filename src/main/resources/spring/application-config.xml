@@ -9,7 +9,7 @@
 		http://www.springframework.org/schema/context
 		http://www.springframework.org/schema/context/spring-context.xsd
 		http://www.springframework.org/schema/tx
-        http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+		http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
 
 	<!-- jdbc配置 -->
 	<context:property-placeholder location="classpath*:db.properties" />
@@ -31,11 +31,10 @@
         <property name="basePackage" value="com.search.dlayer.dao"></property>
     </bean>
 
-    <!-- トランザクション配置 -->
-    <tx:annotation-driven transaction-manager="transactionManager"/>
-    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource"></property>
-    </bean>
+    <!-- トランザクション配置 （Mybatisや、JdbcTemplate）-->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
 
 	<!-- dozer配置 -->
 	<bean id="beanMapper"

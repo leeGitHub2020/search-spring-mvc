@@ -1,6 +1,7 @@
 package com.search.player;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.log4j.Logger;
 import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +23,12 @@ import com.search.player.base.BaseController;
 public class MLoginController extends BaseController {
 
     /**
+     * ログ
+     */
+    Logger logger = Logger.getLogger(MLoginController.class);
+
+
+    /**
      * 操作種別：登録
      */
     private static final String SAVE = "1";
@@ -40,6 +47,11 @@ public class MLoginController extends BaseController {
      * 操作種別；削除
      */
     private static final String DELETE = "4";
+
+    /**
+     * 操作種別；トランザクション
+     */
+    private static final String TRANSACTION = "5";
 
     /**
      * ログインサービス
@@ -120,6 +132,18 @@ public class MLoginController extends BaseController {
                 mv.addObject("msg", "ユーザー情報を削除しました。");
             } else {
                 mv.addObject("msg", "ユーザー情報の削除が失敗しました。");
+            }
+        } else if (TRANSACTION.equals(todo)) {
+
+            // 削除情報取得
+            LoginInfo input = mapper.map(mloginForm, LoginInfo.class);
+
+            try {
+                mloginService.execute(input);
+                mv.addObject("msg", "ネム更新がしました。");
+            } catch (Exception e) {
+                logger.error("", e);
+                mv.addObject("msg", "トランザクションがが失敗しました。");
             }
         }
         return mv;
