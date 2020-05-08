@@ -1,9 +1,11 @@
 package com.search.player;
 
+import java.util.Locale;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -65,6 +67,10 @@ public class MLoginController extends BaseController {
     @Autowired
     private Mapper mapper;
 
+
+    @Autowired
+    MessageSource message;
+
     /**
      * モデル初期化
      *
@@ -94,7 +100,7 @@ public class MLoginController extends BaseController {
         // 操作種別を取得する
         String todo = mloginForm.getTodo();
         if (StringUtils.isEmpty(todo)) {
-            mv.addObject("msg", "操作種別を選択してください。");
+            mv.addObject("msg", message.getMessage("mlogin.msg.01", null, Locale.getDefault()));
         } else if (SAVE.equals(todo)) {
             // 登録情報取得
             LoginInfo loginInfo = mapper.map(mloginForm, LoginInfo.class);
