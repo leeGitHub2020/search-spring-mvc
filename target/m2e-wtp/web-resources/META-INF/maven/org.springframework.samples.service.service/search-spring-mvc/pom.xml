@@ -36,7 +36,7 @@
 		<net-sf.dozer-version>5.4.0</net-sf.dozer-version>
 
 		<!-- Spring -->
-		<spring-framework.version>5.0.4.RELEASE</spring-framework.version>
+		<spring-framework.version>5.3.18</spring-framework.version>
 
 		<!-- Spring Data JPA -->
 		<spring-data-jpa.version>2.0.0.RELEASE</spring-data-jpa.version>
