@@ -45,7 +45,7 @@
 		<spring-data-jpa.version>2.0.0.RELEASE</spring-data-jpa.version>
 
 		<!-- postgresql -->
-		<postgresql.version>9.4-1206-jdbc42</postgresql.version>
+		<postgresql.version>42.3.7</postgresql.version>
 
 		<!-- spring jdbc -->
 		<spring.jdbc.version>4.2.3.RELEASE</spring.jdbc.version>
